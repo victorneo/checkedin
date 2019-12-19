@@ -14,6 +14,7 @@ pytest-cov = "*"
 pytest-django = "*"
 cryptography = "*"
 python-dotenv = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
