@@ -54,7 +54,7 @@ Here are some recommended value settings:
 - `DOMAIN_NAME`: Any valid domain name, eg. `hello.com` will work
 - `DEBUG`: Use `'True'` for development, otherwise it will default to False
 
-# # License
+## License
 
 [Apache License, version 2.0](LICENSE.md)
 
