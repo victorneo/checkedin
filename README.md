@@ -59,5 +59,5 @@ Here are some recommended value settings:
 [Apache License, version 2.0](LICENSE.md)
 
 
-[1] https://www.w3.org/TR/activitypub/
-[2] https://github.com/pypa/pipenv
+[1]: https://www.w3.org/TR/activitypub/
+[2]: https://github.com/pypa/pipenv
