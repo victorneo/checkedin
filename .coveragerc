@@ -1,0 +1,5 @@
+[run]
+omit =
+        checkedin/*
+        manage.py
+        */apps.py

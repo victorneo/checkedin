@@ -5,4 +5,4 @@ dev:
 
 test:
 	-rm test.sqlite3
-	pytest --cov=.
+	pytest --reuse-db --cov=.

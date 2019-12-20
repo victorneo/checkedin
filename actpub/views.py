@@ -29,3 +29,31 @@ class WebFingerAPI(APIView):
         }
 
         return Response(resp, content_type='application/activity+json')
+
+
+class UserAPI(APIView):
+    def get(self, request, username):
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        uid = 'https://' + DOMAIN_NAME + '/users/'+ user.username
+
+        resp = {
+            '@context': [
+                'https://www.w3.org/ns/activitystreams',
+                'https://w3id.org/security/v1'
+            ],
+            'id': uid,
+            'type': 'Person',
+            'preferredUsername': user.username,
+            'inbox': 'https://'+ DOMAIN_NAME + '/inbox',
+            'publicKey': {
+                'id': uid + '#main-key',
+                'owner': uid,
+                'publicKeyPem': user.public_key
+            }
+        }
+
+        return Response(resp, content_type='application/activity+json')
