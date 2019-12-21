@@ -29,9 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG') == 'True'
 DOMAIN_NAME = os.getenv('DOMAIN_NAME')
 
-
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [DOMAIN_NAME]
 
 # Application definition
 INSTALLED_APPS = [
