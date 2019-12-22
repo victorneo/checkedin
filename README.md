@@ -1,13 +1,21 @@
 # Checkedin
 
-Checkedin is a Django-based project for experimenting with the [ActivityPub][1] protocol.
+Checkedin is a Django-based project for experimenting with the [ActivityPub][1]
+protocol. The goal is to implement the minimum number of APIs required to
+support the ActivityPub protocol to explore its behaviour.
 
-The goal is to implement the minimum number of APIs required to support the
-ActivityPub protocol to explore its behaviour. In terms of functionality, it
-can be used to "check-in" into locations, similar to Foursquare Swarm.
+In terms of functionality, users can sign up to "check-in" to locations,
+similar to Foursquare Swarm. Users on networks that support ActivityPub, such
+as Mastodon, will be able to follow these users.
 
 Note: As this is a personal project built to experiment with the ActivityPub protocol,
 the code in the repo should not be referenced for any actual use.
+
+## What Works
+
+- [x] Find users on this server through other networks, eg. Mastodon
+- [ ] Public login
+- [ ] Check-in to location
 
 ## Setup
 
