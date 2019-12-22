@@ -1,7 +1,7 @@
+from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from checkedin.settings import DOMAIN_NAME
 from users.models import User
 
 
@@ -12,7 +12,7 @@ class WebFingerAPI(APIView):
         username = parts[0]
         domain = parts[1]
 
-        if domain != DOMAIN_NAME:
+        if domain != settings.DOMAIN_NAME:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         try:
@@ -25,7 +25,8 @@ class WebFingerAPI(APIView):
             'links': [
                 {'rel': 'self',
                  'type': 'application/activity+json',
-                 'href': 'https://' + DOMAIN_NAME + '/users/'+ user.username}]
+                 'href': 'https://' + settings.DOMAIN_NAME +
+                         '/users/'+ user.username}]
         }
 
         return Response(resp)
@@ -38,7 +39,7 @@ class UserAPI(APIView):
         except User.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        url = 'https://' + DOMAIN_NAME + '/users/'+ user.username
+        url = 'https://' + settings.DOMAIN_NAME + '/users/'+ user.username
 
         resp = {
             '@context': [
@@ -48,7 +49,7 @@ class UserAPI(APIView):
             'id': url,
             'type': 'Service',
             'preferredUsername': user.username,
-            'inbox': 'https://'+ DOMAIN_NAME + '/inbox',
+            'inbox': 'https://'+ settings.DOMAIN_NAME + '/inbox',
             'followers': url + '/followers',
             'name': user.username,
             'publicKey': {

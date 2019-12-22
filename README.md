@@ -1,5 +1,7 @@
 # Checkedin
 
+[![Build Status](https://travis-ci.org/victorneo/checkedin.svg?branch=master)](https://travis-ci.org/victorneo/checkedin)
+
 Checkedin is a Django-based project for experimenting with the [ActivityPub][1]
 protocol. The goal is to implement the minimum number of APIs required to
 support the ActivityPub protocol to explore its behaviour.
@@ -35,15 +37,7 @@ Next, install the dependencies:
 pipenv sync
 ```
 
-### 2. Running the tests
-
-The default tests should run without any further configuration needed.
-
-```
-make tests
-```
-
-### 3. Running the application for development
+### 2. Running the application for development
 
 `.env` file is used to configure the application for development or production
 use through the use of environment variables. You can use the built-in script
@@ -61,6 +55,16 @@ Here are some recommended value settings:
 - `SECRET_KEY`: Any random string for development, use a long random string for production
 - `DOMAIN_NAME`: Any valid domain name, eg. `hello.com` will work
 - `DEBUG`: Use `'True'` for development, otherwise it will default to False
+
+
+### 3. Running the tests
+
+The tests should run without any further configuration needed, assuming that
+the `.env` file has been configured correctly above.
+
+```
+make tests
+```
 
 ## License
 
