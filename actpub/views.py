@@ -28,7 +28,7 @@ class WebFingerAPI(APIView):
                  'href': 'https://' + DOMAIN_NAME + '/users/'+ user.username}]
         }
 
-        return Response(resp, content_type='application/activity+json')
+        return Response(resp)
 
 
 class UserAPI(APIView):
