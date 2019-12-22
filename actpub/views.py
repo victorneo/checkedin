@@ -46,9 +46,11 @@ class UserAPI(APIView):
                 'https://w3id.org/security/v1'
             ],
             'id': uid,
-            'type': 'Person',
+            'type': 'Service',
             'preferredUsername': user.username,
             'inbox': 'https://'+ DOMAIN_NAME + '/inbox',
+            'followers': 'https://'+ DOMAIN_NAME + '/users/' + username + '/followers',
+            'name': user.username,
             'publicKey': {
                 'id': uid + '#main-key',
                 'owner': uid,
