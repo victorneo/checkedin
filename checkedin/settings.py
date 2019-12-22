@@ -123,5 +123,6 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
+        'renderers.activity_json_renderer.ActivityJSONRenderer',
     )
 }
