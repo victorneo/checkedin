@@ -38,22 +38,22 @@ class UserAPI(APIView):
         except User.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        uid = 'https://' + DOMAIN_NAME + '/users/'+ user.username
+        url = 'https://' + DOMAIN_NAME + '/users/'+ user.username
 
         resp = {
             '@context': [
                 'https://www.w3.org/ns/activitystreams',
                 'https://w3id.org/security/v1'
             ],
-            'id': uid,
+            'id': url,
             'type': 'Service',
             'preferredUsername': user.username,
             'inbox': 'https://'+ DOMAIN_NAME + '/inbox',
-            'followers': 'https://'+ DOMAIN_NAME + '/users/' + username + '/followers',
+            'followers': url + '/followers',
             'name': user.username,
             'publicKey': {
-                'id': uid + '#main-key',
-                'owner': uid,
+                'id': url + '#main-key',
+                'owner': url,
                 'publicKeyPem': user.public_key
             }
         }
