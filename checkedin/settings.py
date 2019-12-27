@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'actpub',
+    'webapp',
 ]
 
 MIDDLEWARE = [
@@ -59,8 +60,8 @@ ROOT_URLCONF = 'checkedin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': ['templates',],
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -117,6 +118,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/'),
+]
 
 
 # Rest Framework Configuration
