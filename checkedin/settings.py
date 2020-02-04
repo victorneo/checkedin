@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'users',
+    'locations',
     'actpub',
     'webapp',
 ]
@@ -130,3 +131,7 @@ REST_FRAMEWORK = {
         'renderers.activity_json_renderer.ActivityJSONRenderer',
     )
 }
+
+# CONNECTORS Configuration
+FOURSQUARE_CLIENT_ID = os.getenv('FOURSQUARE_CLIENT_ID')
+FOURSQUARE_CLIENT_SECRET = os.getenv('FOURSQUARE_CLIENT_SECRET')
