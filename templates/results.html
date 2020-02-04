@@ -5,4 +5,9 @@
     <title>Check-ins</title>
   </head>
   <h1>Results</h1>
+  <ul>
+    {% for r in results %}
+    <li>{{ r.name }}</li>
+    {% endfor %}
+  </ul>
 </html>

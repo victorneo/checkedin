@@ -11,8 +11,8 @@ function geoFindMe() {
     const longitude = position.coords.longitude;
 
     status.textContent = '';
-    mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-    mapLink.textContent = `Show in OSM`;
+    mapLink.href = `/results?lat=${latitude}&lon=${longitude}`;
+    mapLink.textContent = `Check-in`;
 
     // initialize Leaflet
     var map = L.map('map').setView({lon: longitude, lat: latitude}, 17);

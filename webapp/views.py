@@ -7,10 +7,11 @@ def index(request):
 
 
 def results(request):
-    lat = request.GET.get('latitude')
-    lon = request.GET.get('longitude')
+    lat = request.GET.get('lat')
+    lon = request.GET.get('lon')
 
     if lat and lon:
-        print(fs.search_venues(lat, lon))
+        results = fs.search_venues(lat, lon)
 
-    return render(request, 'results.html')
+    return render(request, 'results.html',
+                  {'results': results})

@@ -15,10 +15,10 @@ class FoursquareClient(object):
                   'intent': 'checkin',
                   'client_id': self.client_id,
                   'client_secret': self.client_secret,
+                  'v': '20200101',
                   'limit': 50}
 
         resp = requests.get(self.PLACES_SEARCH_API, params=params)
-        print(resp.content)
         if resp.status_code != 200:
             raise Exception('Foursquare Error')
 
