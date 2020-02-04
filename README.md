@@ -10,14 +10,18 @@ In terms of functionality, users can sign up to "check-in" to locations,
 similar to Foursquare Swarm. Users on networks that support ActivityPub, such
 as Mastodon, will be able to follow these users.
 
+The scope of the project is being expanded to include other location based
+activities, such as storing GPX files for cycling and running. This would allow
+the project to backup files for personal use.
+
 Note: As this is a personal project built to experiment with the ActivityPub protocol,
 the code in the repo should not be referenced for any actual use.
 
 ## What Works
 
 - [x] Find users on this server through other networks, eg. Mastodon
-- [ ] Public login
 - [ ] Check-in to location
+- [ ] Store GPX files
 
 ## Setup
 
