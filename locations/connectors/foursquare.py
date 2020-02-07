@@ -1,4 +1,5 @@
 import requests
+from django.core.cache import cache
 from django.conf import settings
 
 
@@ -11,6 +12,11 @@ class FoursquareClient(object):
         self.client_secret = client_secret
 
     def search_venues(self, lat, lon):
+        venues = cache.get('locations')
+
+        if venues:
+            return venues
+
         params = {'ll': str(lat) + ',' + str(lon),
                   'intent': 'checkin',
                   'client_id': self.client_id,
@@ -22,7 +28,9 @@ class FoursquareClient(object):
         if resp.status_code != 200:
             raise Exception('Foursquare Error')
 
-        return resp.json()['response']['venues']
+        venues = resp.json()['response']['venues']
+        cache.set('locations', venues)
+        return venues
 
 
 fs = FoursquareClient(settings.FOURSQUARE_CLIENT_ID,

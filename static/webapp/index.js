@@ -13,6 +13,7 @@ function geoFindMe() {
     status.textContent = '';
     mapLink.href = `/results?lat=${latitude}&lon=${longitude}`;
     mapLink.textContent = `Check-in`;
+    mapLink.style.display = "inline-flex";
 
     // initialize Leaflet
     var map = L.map('map').setView({lon: longitude, lat: latitude}, 17);

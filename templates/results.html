@@ -1,13 +1,22 @@
+{% extends "base.html" %}
 {% load static %}
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Check-ins</title>
-  </head>
-  <h1>Results</h1>
-  <ul>
-    {% for r in results %}
-    <li>{{ r.name }}</li>
-    {% endfor %}
-  </ul>
-</html>
+
+{% block title %}Places{% endblock %}
+
+{% block content %}
+<div class="container" style="text-align: center; width: 60%;">
+<h1>Places</h1>
+<div class="list-group" style="text-align: left;">
+  {% for r in results %}
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ r.name }}</h5>
+      <small><button type="button" class="btn btn-primary btn-sm" href="#">Check in</button></small>
+    </div>
+    <p class="mb-1">{{ r.location.address }}</p>
+    <small>{% for c in r.categories %}{{ c.name }} {% endfor %}</small>
+  </a>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}
