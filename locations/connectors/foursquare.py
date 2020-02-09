@@ -12,8 +12,8 @@ class FoursquareClient(object):
         self.client_secret = client_secret
 
     def search_venues(self, lat, lon):
-        venues = cache.get('locations')
-
+        cachename = 'location-' + str(lat) + str(lon)
+        venues = cache.get(cachename)
         if venues:
             return venues
 
@@ -29,7 +29,7 @@ class FoursquareClient(object):
             raise Exception('Foursquare Error')
 
         venues = resp.json()['response']['venues']
-        cache.set('locations', venues)
+        cache.set(cachename, venues)
         return venues
 
 

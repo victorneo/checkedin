@@ -8,10 +8,10 @@
 <h1>Places</h1>
 <div class="list-group" style="text-align: left;">
   {% for r in results %}
-  <a href="#" class="list-group-item list-group-item-action">
+  <a  href="{% url 'webapp.checkin' %}?lat={{r.location.lat}}&lon={{r.location.lng}}&name={{r.name|urlencode}}&address={{r.location.address|urlencode}}" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ r.name }}</h5>
-      <small><button type="button" class="btn btn-primary btn-sm" href="#">Check in</button></small>
+      <small><button type="button" class="btn btn-primary btn-sm">Check in</button></small>
     </div>
     <p class="mb-1">{{ r.location.address }}</p>
     <small>{% for c in r.categories %}{{ c.name }} {% endfor %}</small>
