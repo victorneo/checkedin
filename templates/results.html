@@ -4,9 +4,9 @@
 {% block title %}Places{% endblock %}
 
 {% block content %}
-<div class="container" style="text-align: center; width: 60%;">
+<div class="container main">
 <h1>Places</h1>
-<div class="list-group" style="text-align: left;">
+<div class="list-group results" style="text-align: left;">
   {% for r in results %}
   <a  href="{% url 'webapp.checkin' %}?lat={{r.location.lat}}&lon={{r.location.lng}}&name={{r.name|urlencode}}&address={{r.location.address|urlencode}}" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">

@@ -1,0 +1,33 @@
+div.main {
+  margin-top: 20px;
+  width: 75%;
+  text-align: center;
+}
+
+div.map {
+  text-align: center;
+  width: 50%;
+  height: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  div.main {
+    width: 100%;
+  }
+
+  div.map {
+    width: 90%;
+  }
+
+  div.results h5.mb-1 {
+    font-size: 0.9em;
+  }
+  div.results p.mb-1 {
+    font-size: 0.9em;
+  }
+  div.results small {
+    font-size: 0.9em;
+  }
+}
+
+
