@@ -10,6 +10,10 @@ div.map {
   height: 50%;
 }
 
+div.results {
+  text-align: left;
+}
+
 @media screen and (max-width: 800px) {
   div.main {
     width: 100%;
