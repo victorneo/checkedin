@@ -2,32 +2,19 @@
 
 [![Build Status](https://travis-ci.org/victorneo/checkedin.svg?branch=master)](https://travis-ci.org/victorneo/checkedin)
 
-Checkedin is a Django-based project for experimenting with the [ActivityPub][1]
-protocol. The goal is to implement the minimum number of APIs required to
-support the ActivityPub protocol to explore its behaviour.
-
-In terms of functionality, users can sign up to "check-in" to locations,
-similar to Foursquare Swarm. Users on networks that support ActivityPub, such
-as Mastodon, will be able to follow these users.
-
-The scope of the project is being expanded to include other location based
-activities, such as storing GPX files for cycling and running. This would allow
-the project to backup files for personal use.
-
-Note: As this is a personal project built to experiment with the ActivityPub protocol,
-the code in the repo should not be referenced for any actual use.
+Checkedin is a Django-based project for storing my social data, such as
+location check-ins and fitness activities.
 
 ## What Works
 
-- [x] Find users on this server through other networks, eg. Mastodon
-- [ ] Check-in to location
-- [ ] Store GPX files
+- [x] Check-ins
+- [ ] Fitness activity export
 
 ## Setup
 
 ### 1. Dependencies
 
-This project uses Python 3 and [pipenv][2] to manage the dependencies.
+This project uses Python 3 and [pipenv][1] to manage the dependencies.
 
 First, install pipenv if you don't have it:
 
@@ -74,6 +61,4 @@ make tests
 
 [Apache License, version 2.0](LICENSE.md)
 
-
-[1]: https://www.w3.org/TR/activitypub/
-[2]: https://github.com/pypa/pipenv
+[1]: https://github.com/pypa/pipenv
