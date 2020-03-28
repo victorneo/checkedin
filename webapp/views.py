@@ -35,6 +35,7 @@ def login(request):
 def results(request):
     lat = request.GET.get('lat')
     lon = request.GET.get('lon')
+    results = []
 
     if lat and lon:
         results = fs.search_venues(lat, lon)
