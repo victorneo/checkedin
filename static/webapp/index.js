@@ -14,6 +14,12 @@ function geoFindMe() {
     mapLink.href = `/results?lat=${latitude}&lon=${longitude}`;
     mapLink.textContent = `Check-in`;
     mapLink.style.display = "inline-flex";
+    mapLink.onclick = function() {
+      var q = document.getElementById('query');
+      var query = q.value;
+      mapLink.href = `/results?lat=${latitude}&lon=${longitude}&query=${query}`;
+      return true;
+    };
 
     // initialize Leaflet
     var map = L.map('map').setView({lon: longitude, lat: latitude}, 17);

@@ -11,8 +11,8 @@ class FoursquareClient(object):
         self.client_id = client_id
         self.client_secret = client_secret
 
-    def search_venues(self, lat, lon):
-        cachename = 'location-' + str(lat) + str(lon)
+    def search_venues(self, lat, lon, query=None):
+        cachename = 'location-' + str(lat) + str(lon) + str(query)
         venues = cache.get(cachename)
         if venues:
             return venues
@@ -23,6 +23,9 @@ class FoursquareClient(object):
                   'client_secret': self.client_secret,
                   'v': '20200101',
                   'limit': 50}
+
+        if query:
+            params['query'] = query
 
         resp = requests.get(self.PLACES_SEARCH_API, params=params)
         if resp.status_code != 200:

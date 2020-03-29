@@ -11,8 +11,8 @@ def test_foursquare_client(c, r):
     results = ['1']
     c.get.return_value = results
 
-    venues = fc.search_venues(100, 200)
-    c.get.assert_called_once_with('location-100200')
+    venues = fc.search_venues(100, 200, 'abc')
+    c.get.assert_called_once_with('location-100200abc')
     assert venues == results
 
     c.get.return_value = None
@@ -22,7 +22,7 @@ def test_foursquare_client(c, r):
     r.get.return_value = resp
 
     with pytest.raises(Exception):
-        fc.search_venues(100, 200)
+        fc.search_venues(100, 200, 'abc')
 
     resp.status_code = 200
     resp.json.return_value = {'response': {'venues': results}}

@@ -35,10 +35,11 @@ def login(request):
 def results(request):
     lat = request.GET.get('lat')
     lon = request.GET.get('lon')
+    query = request.GET.get('query', None)
     results = []
 
     if lat and lon:
-        results = fs.search_venues(lat, lon)
+        results = fs.search_venues(lat, lon, query)
 
     return render(request, 'results.html',
                   {'results': results})
